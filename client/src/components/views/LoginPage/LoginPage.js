@@ -10,6 +10,7 @@ import { LockOutlined, UserOutlined } from "@ant-design/icons";
 const { Title } = Typography;
 
 function LoginPage(props) {
+  console.log('login:::' + props.mode);
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const rememberMeChecked = localStorage.getItem("rememberMe") ? true : false;

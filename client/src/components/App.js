@@ -13,6 +13,7 @@ const LoginPage = React.lazy(() => import('./views/LoginPage/LoginPage.js'));
 const RegisterPage = React.lazy(() => import('./views/RegisterPage/RegisterPage.js'));
 const NavBar = React.lazy(() => import('./views/NavBar/NavBar.js'));
 const Footer = React.lazy(() => import('./views/Footer/Footer.js'));
+const VideoUploadPage = React.lazy(() => import('./views/VideoUploadPage/VideoUploadPage.js'));
 
 //null   Anyone Can go inside
 //true   only logged in user can go inside
@@ -22,18 +23,21 @@ function App() {
   const AuthLandingPage = Auth(LandingPage, null);
   const AuthLoginPage = Auth(LoginPage, false);
   const AuthRegisterPage = Auth(RegisterPage, false);
+  const AuthVideoUploadPage = Auth(VideoUploadPage, true);
 
   return (
     <Suspense fallback={(<div>Loading...</div>)}>
       <section>
       <NavBar />
-      <div style={{ paddingTop: '69px', minHeight: 'calc(100vh - 80px)' }}>
+      <div style={{ paddingTop: '90px', minHeight: 'calc(100vh - 80px)' }}>
         <Routes>
           <Route path="/"  element={<AuthLandingPage />}>
           </Route>
           <Route path="/login" element={<AuthLoginPage />}>
           </Route>
           <Route path="/register" element={<AuthRegisterPage />}>
+          </Route>
+          <Route path="/video/upload" element={<AuthVideoUploadPage />}>
           </Route>
         </Routes>
       </div>

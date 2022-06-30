@@ -10,6 +10,11 @@ const items_new = [
   { label: <Link to='/register'>Signup</Link>, key: 'app' }
 ];
 
+const items_video = [
+  { label: <Link to='/video/upload'>Video</Link>, key: 'upload' }, // remember to pass the key prop
+  { label: <Link to='/logout'>Logout</Link>, key: 'logout' }
+];
+
 const items_normal = [
   { label: <Link to='/logout'>Logout</Link>, key: 'logout' }
 ];
@@ -42,13 +47,17 @@ function RightMenu(props) {
     )
   } else {
     return (
-      // <Menu mode={props.mode}>
-      //   <Menu.Item key="logout">
-      //     <a onClick={logoutHandler}>Logout</a>
-      //   </Menu.Item>
-      // </Menu>
-      <Menu items={items_normal} mode={props.mode} onClick={logoutHandler}/>
+      <Menu items={items_video} mode={props.mode}/>
     )
+    
+    // return (
+    //   // <Menu mode={props.mode}>
+    //   //   <Menu.Item key="logout">
+    //   //     <a onClick={logoutHandler}>Logout</a>
+    //   //   </Menu.Item>
+    //   // </Menu>
+    //   <Menu items={items_normal} mode={props.mode} onClick={logoutHandler}/>
+    // )
   }
 }
 
